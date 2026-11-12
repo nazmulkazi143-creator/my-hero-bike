@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+:root[data-theme='dark'] {
+  --bg: 10 18 38;
+  --card: 17 28 54;
+  --card2: 25 39 72;
+  --line: 38 54 94;
+  --fg: 232 238 250;
+  --muted: 140 154 186;
+  --inc: 52 211 120;
+  --exp: 248 82 94;
+  --acc: 96 140 255;
+  color-scheme: dark;
+}
+:root[data-theme='light'] {
+  --bg: 243 246 252;
+  --card: 255 255 255;
+  --card2: 234 240 250;
+  --line: 214 223 238;
+  --fg: 15 23 42;
+  --muted: 90 104 132;
+  --inc: 14 150 74;
+  --exp: 215 38 56;
+  --acc: 37 99 235;
+  color-scheme: light;
+}
+
+html, body, #root { min-height: 100%; }
+body {
+  margin: 0;
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: Inter, system-ui, 'Noto Sans Bengali', 'Hind Siliguri', Kalpurush, Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+button { font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.recharts-wrapper:focus, .recharts-surface:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Layout helpers used by the app shell */
+.hero {
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgb(var(--acc) / 0.22), transparent 60%),
+    radial-gradient(90% 80% at 0% 100%, rgb(var(--inc) / 0.12), transparent 60%),
+    rgb(var(--card));
+}
+.pb-safe { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
+.nav-safe { padding-bottom: env(safe-area-inset-bottom); }
